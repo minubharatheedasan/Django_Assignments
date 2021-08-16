@@ -1,0 +1,77 @@
+{% extends "employee/base.html" %}
+
+{% block content %}
+<div class = "container">
+    <h1 class = "d-flex justify-content-center">Employee's form</h1>
+    <br>
+        <form action = "" method = "post" autocomplete="on">
+            {% csrf_token %}
+            <div class = "row d-flex justify-content-center" style="display:inline-block; position:relative;" disabled\>
+                <div class = "col-4">
+                    <label>Name</label>
+                    {{form.fullname}}
+                 </div> 
+                <div class = "col-4">
+                    <label>Emp:code</label>
+                    {{form.emp_code}}
+                 </div> 
+            </div>
+            <br>
+            <div class = "row d-flex justify-content-center">
+                <div class = "col-4">
+                    <label>Mobile</label>
+                    {{form.mobile}}
+                </div> 
+                <div class = "col-4">
+                    <label>Position</label>
+                    {{form.postion}}
+                </div> 
+
+            </div>
+            <br>
+            <div class = "d-flex justify-content-center">
+                <button type="submit" class="btn btn-warning ">Submit</button>
+            </div>
+        </form>
+</div>
+
+
+<div class = "container">
+    <br>
+    <br>
+    <h3 class = "d-flex justify-content-center">To add position for Employees</h3>
+    <br>
+    
+    <form action = "/employee/addposition/" method = "POST" autocomplete="on">
+        {% csrf_token %}
+        <div class = "row d-flex justify-content-center">
+            <div class = "col-4">
+                <label>Employee Position
+                    <input type="text"  name = "title" id = "title">
+                </label>
+                <br>
+                <br>
+                <input type = "submit" class="btn btn-primary" value = "Add position" ></button>        
+             </div> 
+        </div>
+<!--         
+        <br>
+        <label for="addposition">Position </label>
+        <input id="position" type="text" name="position" value="{{ form.title }}">
+        <input type="submit" value="OK"> -->
+    </form>
+        <!-- <form action = "" method = "post" autocomplete="on">
+            {% csrf_token %}
+            <div class = "row d-flex justify-content-center">
+                <div class = "col-4">
+                    <label>Name</label>
+                    {{form.model_pos.title}}
+                 </div> 
+            </div>
+            <br>
+            <div class = "d-flex justify-content-center">
+                <button type="submit" class="btn btn-warning ">Add Position</button>
+            </div>
+        </form>
+</div> -->
+{% endblock content %}

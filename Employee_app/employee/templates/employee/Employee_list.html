@@ -1,0 +1,23 @@
+{% extends "employee/base.html" %}
+
+{% block content %}
+    <div class="d-flex justify-content-center">
+        <a class="btn bg-primary text-light" href = "/employee/"  class = "float-end" >Add New Employee/Position</a>
+    </div>
+    <br>
+<div class = "container d-flex justify-content-center">
+    
+    <ul class="list-group list-group-numbered " style = "width:700px" >
+        {% for employee in employee_list %}
+        <li class="list-group-item ">{{employee.fullname}}
+            <a href="{% url 'delete_form' employee.id %} " class = "float-end" style="padding-left: 50px;" >delete</a>
+            <a href="{% url 'update_form' employee.id %} " class = "float-end" >update</a>            
+        </li>
+            
+        <br>
+        {% endfor %}
+    </ul>
+
+</div>
+
+{% endblock content %}
